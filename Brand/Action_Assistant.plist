@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleDisplayName</key>
-    <string>Nextcloud Assistant</string>
+    <string>Gov.ao Assistant</string>
 
     <key>NSExtension</key>
     <dict>
