@@ -27,6 +27,7 @@ iOSClient/Brand/Device*
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+/build/
 xcuserdata
 profile
 *.moved-aside
