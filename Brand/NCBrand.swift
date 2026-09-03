@@ -60,26 +60,26 @@ struct NextcloudVersion: Comparable {
 final class NCBrandOptions: @unchecked Sendable {
     static let shared = NCBrandOptions()
 
-    var brand: String = "Nextcloud"
-    var brandUserAgent: String = ""
-    var textCopyrightNextcloudiOS: String = "Nextcloud Matheria for iOS %@ © 2026"
+    var brand: String = "Gov.ao"
+    var brandUserAgent: String = "GovAo"
+    var textCopyrightNextcloudiOS: String = "Gov.ao para iOS %@ © 2026 — baseado em Nextcloud"
     var textCopyrightNextcloudServer: String = "Nextcloud Server %@"
-    var loginBaseUrl: String = "https://cloud.nextcloud.com"
-    var pushNotificationServerProxy: String = ""
-    var linkLoginHost: String = "https://nextcloud.com/install"
-    var linkloginPreferredProviders: String = "https://nextcloud.com/signup-ios"
-    var webLoginAutenticationProtocol: String = "nc://"                                        // example "abc://"
-    var privacy: String = "https://nextcloud.com/privacy"
-    var sourceCode: String = "https://github.com/nextcloud/ios"
+    var loginBaseUrl: String = "https://cloud.nextcloud.com" // TODO(rebranding): apontar ao servidor do IMA
+    var pushNotificationServerProxy: String = "" // TODO(rebranding): URL de produção do push proxy (ver ima-talk/push-proxy)
+    var linkLoginHost: String = "https://nextcloud.com/install" // TODO(rebranding): página institucional gov.ao
+    var linkloginPreferredProviders: String = "https://nextcloud.com/signup-ios" // TODO(rebranding)
+    var webLoginAutenticationProtocol: String = "govaoficheiros://"                             // example "abc://"
+    var privacy: String = "https://nextcloud.com/privacy" // TODO(rebranding): política de privacidade própria
+    var sourceCode: String = "https://github.com/ima-dev-team/ios"
     var mobileconfig: String = "/remote.php/dav/provisioning/apple-provisioning.mobileconfig"
-    var appStoreUrl: String = "https://apps.apple.com/in/app/nextcloud/id1125420102"
+    var appStoreUrl: String = "" // TODO(rebranding): preencher após publicação
 
     // Auto Upload default folder
     var folderDefaultAutoUpload: String = "Photos"
 
     // Capabilities Group
-    var capabilitiesGroup: String = "group.it.twsweb.Crypto-Cloud"
-    var capabilitiesGroupApps: String = "group.com.nextcloud.apps"
+    var capabilitiesGroup: String = "group.ao.gov.ficheiros"
+    var capabilitiesGroupApps: String = "group.ao.gov.ficheiros"
 
     // BRAND ONLY
     var use_AppConfig: Bool = false                                                         // Don't touch me !!
