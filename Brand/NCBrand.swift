@@ -65,7 +65,7 @@ final class NCBrandOptions: @unchecked Sendable {
     var textCopyrightNextcloudiOS: String = "Gov.ao para iOS %@ © 2026 — baseado em Nextcloud"
     var textCopyrightNextcloudServer: String = "Nextcloud Server %@"
     var loginBaseUrl: String = "https://gov.ao"
-    var pushNotificationServerProxy: String = "https://push.comunica.gov.ao" // ⚠️ instância partilhada com o Comunica/Talk; só assina para o tópico APNs `ao.gov.comunica.talk` — push real do Files (`ao.gov.ficheiros`) só funciona depois de 2ª instância ou proxy multi-tenant, ver rebranding-files-checklist.md
+    var pushNotificationServerProxy: String = "https://push.comunica.gov.ao" // instância partilhada com o Comunica/Talk (push-proxy multi-tenant, tópico APNs próprio para ao.gov.ficheiros — ver ima-talk/push-proxy)
     var linkLoginHost: String = "https://nextcloud.com/install" // TODO(rebranding): página institucional gov.ao
     var linkloginPreferredProviders: String = "https://nextcloud.com/signup-ios" // TODO(rebranding)
     var webLoginAutenticationProtocol: String = "govaoficheiros://"                             // example "abc://"
