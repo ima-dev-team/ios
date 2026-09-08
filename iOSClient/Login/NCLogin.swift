@@ -90,6 +90,7 @@ class NCLogin: UIViewController, UITextFieldDelegate, NCLoginQRCodeDelegate {
 
         // QR code button
         qrCode.tintColor = NCBrandColor.shared.customer.isTooLight() ? .black : .white
+        qrCode.isHidden = !NCQRScannerViewController.isDataScannerSupported()
 
         // brand
         if NCBrandOptions.shared.disable_request_login_url {
@@ -322,8 +323,21 @@ class NCLogin: UIViewController, UITextFieldDelegate, NCLoginQRCodeDelegate {
     }
 
     @IBAction func actionQRCode(_ sender: Any) {
-        let qrCode = NCLoginQRCode(delegate: self)
-        qrCode.scan()
+        // NCLoginQRCode (QRCodeReader.swift, pinned to a 2019 commit) fails
+        // silently on current iOS — see NCQRScannerViewController.swift for
+        // why. Use the VisionKit-based scanner instead, already verified
+        // working on a real device in Talk gov.ao.
+        guard NCQRScannerViewController.isDataScannerSupported() else {
+            let alert = UIAlertController(title: NSLocalizedString("_error_", comment: ""), message: NSLocalizedString("_qrcode_not_supported_", comment: ""), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("_ok_", comment: ""), style: .cancel, handler: nil))
+            present(alert, animated: true)
+            return
+        }
+
+        let scannerVC = NCQRScannerViewController()
+        scannerVC.delegate = self
+        scannerVC.modalPresentationStyle = .fullScreen
+        present(scannerVC, animated: true)
     }
 
     @IBAction func actionCertificate(_ sender: Any) {
