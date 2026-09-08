@@ -69,7 +69,7 @@ final class NCBrandOptions: @unchecked Sendable {
     var linkLoginHost: String = "https://nextcloud.com/install" // TODO(rebranding): página institucional gov.ao
     var linkloginPreferredProviders: String = "https://nextcloud.com/signup-ios" // TODO(rebranding)
     var webLoginAutenticationProtocol: String = "govaoficheiros://"                             // example "abc://"
-    var privacy: String = "https://nextcloud.com/privacy" // TODO(rebranding): política de privacidade própria
+    var privacy: String = "https://github.com/ima-dev-team/ios/blob/branding/docs/PRIVACY.md"
     var sourceCode: String = "https://github.com/ima-dev-team/ios"
     var mobileconfig: String = "/remote.php/dav/provisioning/apple-provisioning.mobileconfig"
     var appStoreUrl: String = "" // TODO(rebranding): preencher após publicação
