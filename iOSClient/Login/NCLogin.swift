@@ -93,10 +93,37 @@ class NCLogin: UIViewController, UITextFieldDelegate, NCLoginQRCodeDelegate {
 
         // brand
         if NCBrandOptions.shared.disable_request_login_url {
-            baseUrlTextField.isEnabled = false
-            baseUrlTextField.isUserInteractionEnabled = false
-            baseUrlTextField.alpha = 0.5
             urlBase = NCBrandOptions.shared.loginBaseUrl
+
+            // Hide the server address field entirely and turn the existing
+            // arrow button into a full-width "Entrar" button in its place —
+            // same outlined look as the field it replaces, matching the
+            // pattern already used on Talk gov.ao's login screen.
+            baseUrlTextField.isHidden = true
+            // "The link to your web interface when you open it in a
+            // browser." only made sense as a hint for the field above —
+            // with a fixed server there's nothing left to explain.
+            loginAddressDetail.isHidden = true
+
+            loginButton.setImage(nil, for: .normal)
+            loginButton.setTitle("→  " + NSLocalizedString("_log_in_", comment: ""), for: .normal)
+            loginButton.setTitleColor(textColor, for: .normal)
+            loginButton.titleLabel?.font = .boldSystemFont(ofSize: 17)
+            loginButton.backgroundColor = .clear
+            loginButton.layer.cornerRadius = 10
+            loginButton.layer.borderWidth = 1
+            loginButton.layer.borderColor = textColor.cgColor
+
+            loginButton.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.deactivate(loginButton.constraints.filter {
+                $0.firstAttribute == .width || $0.firstAttribute == .height
+            })
+            NSLayoutConstraint.activate([
+                loginButton.leadingAnchor.constraint(equalTo: baseUrlTextField.leadingAnchor),
+                loginButton.trailingAnchor.constraint(equalTo: baseUrlTextField.trailingAnchor),
+                loginButton.topAnchor.constraint(equalTo: baseUrlTextField.topAnchor),
+                loginButton.heightAnchor.constraint(equalTo: baseUrlTextField.heightAnchor)
+            ])
         }
 
         // certificate

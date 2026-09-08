@@ -88,7 +88,7 @@ final class NCBrandOptions: @unchecked Sendable {
     var use_themingColor: Bool = true
 
     var disable_intro: Bool = false
-    var disable_request_login_url: Bool = false
+    var disable_request_login_url: Bool = true // servidor fixo gov.ao, utilizador não escreve o endereço
     var disable_multiaccount: Bool = false
     var disable_more_external_site: Bool = false
     var disable_openin_file: Bool = false                                                       // Don't touch me !!
